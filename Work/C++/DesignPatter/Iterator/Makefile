@@ -2,7 +2,7 @@ CC= g++
 RS= windres
 MAIN= Capp
 #Boa parte desses flags fazem com que o binario incluas todas dependências
-CFLAGS =  -static-libgcc -static-libstdc++
+CFLAGS =  #-static-libgcc -static-libstdc++
 # -c só produz o binario e -g produz o binario com depuração(gdb)
 CMOD = -c -g 
 MFILES = 
@@ -31,7 +31,7 @@ all: ${P_BIN}/${MAIN}.exe
 	$<
 	
 ${P_BIN}/${MAIN}.exe: ${P_OBJ}/${MAIN}.o ${MOBJS} ${IOBJS} ${IRC} 
-	${CC} ${CFLAGS} -o $@ $< $(patsubst %,${P_OBJ}/%,$(MOBJS)) $(patsubst %,${P_OBJ}/%,$(IOBJS)) $(patsubst %,${P_RES}/%,$(IRC))
+	${CC} ${CFLAGS} -o $@ $< $(patsubst %,${P_OBJ}/%,$(IOBJS)) $(patsubst %,${P_RES}/%,$(IRC)) $(patsubst %,${P_OBJ}/%,$(MOBJS))
 	
 ${P_OBJ}/${MAIN}.o: ${MAIN}.cpp ${MAIN}.h
 	${CC}  ${CMOD} $< -o $@
