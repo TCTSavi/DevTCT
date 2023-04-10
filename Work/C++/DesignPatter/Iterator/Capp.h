@@ -4,7 +4,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include "inc/devCIterator.h"
+#include "../../mainLib/inc/devCIterator.h"
 
 using namespace std;
 
