@@ -4,6 +4,8 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include "inc/devCIterator.h"
+
 using namespace std;
 
 class MenuItem{
@@ -19,19 +21,46 @@ class MenuItem{
 	bool isVegetarian();
 	double getPrice();
 };
-#include "inc/devCIterator.h"
-
-template class Iterator<MenuItem*>;
 
 typedef Container<MenuItem*> Menu;
 //Agregado concreto(Coleção de objetos)
 class PancakeHouseMenu:public Menu{
 	public:
-	vector <MenuItem*> *menuitems;
+	map <string,MenuItem*> *menuitems;
 	public:
 	PancakeHouseMenu();
 	void addItem(string name,string description,bool vegetarian,double price);
 	Iterator<MenuItem*>* CreateIterator();
 };
+
+//Cliente
+class Alice {
+	public:
+	Alice(vector <Menu*> *Menus){
+		this->Menus = Menus;
+	} 
+	void printMenu(){
+		for(int i =0;i < Menus->size();i++){
+			Iterator<MenuItem*>* MenuIterator = (*Menus)[i]->CreateIterator();
+			printMenu(MenuIterator);
+			cout << endl;
+		}
+	}
+	private:
+	//PancakeHouseMenu *LousMenu;
+	//DinerMenu *MelsMenu;
+	vector <Menu*> *Menus;
+
+	void printMenu(Iterator<MenuItem*>* it){
+		while(!it->IsDone()){
+			MenuItem *item = it->GetCurrent();
+			it->Next();
+			cout << item->getName()  << ", ";
+			cout << item->getPrice()  << ", ";
+			cout << item->getDescription()  << endl;
+		}
+	}
+};
+
 
 #endif

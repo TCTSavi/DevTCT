@@ -4,7 +4,6 @@
 #include <vector>
 #include <list>
 #include <map>
-#include <iostream>
 
 template <class item>
 class Iterator{
@@ -20,26 +19,89 @@ class VectorIterator:public Iterator<item>{
 public:
 	VectorIterator( std::vector<item>* Container ){
 		this->Container = Container;
-		Current = 0;
+		it = Container->begin();
 	}
 	void First(){
-		Current = 0;
+		it = Container->begin();
 	}
 	void Next(){
-		Current++;
+		it++;
 	}
 	bool IsDone(){
-		return Current >= Container->size();
+		return it == Container->end();
 	}
 	item GetCurrent(){
 		if (IsDone()){
 		}
-		return	(*Container)[Current];
+		return	*it;
 	}
 private:
 	std::vector<item>* Container;
+	typename std::vector<item>::iterator it;
 	long Current;		
 };
+
+template <class item>
+class ListIterator:public Iterator<item>{
+public:
+	ListIterator( std::list<item>* Container ){
+		this->Container = Container;
+		it = Container->begin();
+	}
+	void First(){
+		it = Container->begin();
+	}
+	void Next(){
+		it++;
+	}
+	bool IsDone(){
+		return it == Container->end();
+	}
+	item GetCurrent(){
+		if (IsDone()){
+		}
+		return	*it;
+	}
+private:
+	std::list<item>* Container;
+	typename std::list<item>::iterator it;
+	long Current;		
+};
+
+template <class key,class item>
+class MapIterator:public Iterator<item>{
+public:
+	MapIterator( std::map<key,item>* Container ){
+		this->Container = Container;
+		it = Container->begin();
+	}
+	void First(){
+		it = Container->begin();
+	}
+	void Next(){
+		it++;
+	}
+	bool IsDone(){
+		return it == Container->end();
+	}
+	item GetCurrent(){
+		if (IsDone()){
+		}
+		return	(*it).second;
+	}
+private:
+	std::map<key,item>* Container;
+	typename std::map<key,item>::iterator it;
+	long Current;		
+};
+
+
+/*
+Iterator<item*>* Container::CreateIterator(){
+	Iterator<item*> *it = new VectorIterator<item*>(Container);
+	return it;
+}
+*/
 
 template <class item>
 class Container{
