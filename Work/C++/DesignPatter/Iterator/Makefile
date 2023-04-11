@@ -2,11 +2,11 @@ CC= g++
 RS= windres
 MAIN= Capp
 #Boa parte desses flags fazem com que o binario incluas todas dependências
-CFLAGS =  #-static-libgcc -static-libstdc++
+CFLAGS = -static-libgcc -static-libstdc++
 # -c só produz o binario e -g produz o binario com depuração(gdb)
 CMOD = -c -g 
 MFILES = 
-IFILES =
+IFILES = MenuItem Alice
 MIFILES = devCIterator
 MFILES = 
 RCFILES =
