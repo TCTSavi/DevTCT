@@ -95,13 +95,37 @@ private:
 	long Current;		
 };
 
-
-/*
-Iterator<item*>* Container::CreateIterator(){
-	Iterator<item*> *it = new VectorIterator<item*>(Container);
-	return it;
-}
-*/
+template <class item>
+class ArrayIterator:public Iterator<item>{
+public:
+	ArrayIterator( item* Container ){
+		this->Container = Container;
+		it = 0;
+	}
+	void First(){
+		it = 0;
+	}
+	void Next(){
+		it++;
+	}
+	bool IsDone(){
+		if (!Container[it]){
+			return true;
+		}
+		else{
+			false;
+		}
+	}
+	item GetCurrent(){
+		if (IsDone()){
+		}
+		return	Container[it];
+	}
+private:
+	item* Container;
+	int it;
+	long Current;		
+};
 
 template <class item>
 class Container{
