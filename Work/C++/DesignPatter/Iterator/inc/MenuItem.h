@@ -30,4 +30,16 @@ class PancakeHouseMenu:public Menu{
 	Iterator<MenuItem*>* CreateIterator();
 };
 
+//Agregado concreto(Coleção de objetos)
+class DinerMenu:public Menu{
+	public:
+	static const int MAX_ITEMS = 6;
+	MenuItem* menuitems[MAX_ITEMS];
+	public:
+	DinerMenu();
+	void addItem(string name,string description,bool vegetarian,double price);
+	Iterator<MenuItem*>* CreateIterator();
+};
+
+
 #endif

@@ -36,3 +36,4 @@ Iterator<MenuItem*>* PancakeHouseMenu::CreateIterator(){
 	Iterator<MenuItem*> *it = new MapIterator<string,MenuItem*>(menuitems);
 	return it;
 }
+
