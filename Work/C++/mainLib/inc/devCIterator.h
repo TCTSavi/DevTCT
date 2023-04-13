@@ -113,7 +113,7 @@ public:
 			return true;
 		}
 		else{
-			false;
+			return false;
 		}
 	}
 	item GetCurrent(){
