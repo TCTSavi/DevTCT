@@ -20,7 +20,7 @@ double MenuItem::getPrice(){
 }
 
 PancakeHouseMenu::PancakeHouseMenu(){
-	menuitems = new map <string,MenuItem*>;
+	menuitems = new vector <MenuItem*>;
 	addItem("K&B Pancake Breakfast","Pancakes with scrambled eggs, and toast",true,2.99);
 	addItem("Regular Pancake Breakfast","Pancakes with fried eggs, sausage",false,2.99);
 	addItem("Blueberry Pancakes","Pancakes made with fresh blueberries",true,3.49);
@@ -29,11 +29,11 @@ PancakeHouseMenu::PancakeHouseMenu(){
 
 void PancakeHouseMenu::addItem(string name,string description,bool vegetarian,double price){
 	MenuItem* tempMenu = new MenuItem(name,description,vegetarian,price);
-	(*menuitems)[tempMenu->getName()] = tempMenu;
+	menuitems->push_back(tempMenu);
 }
 
 Iterator<MenuItem*>* PancakeHouseMenu::CreateIterator(){
-	Iterator<MenuItem*> *it = new MapIterator<string,MenuItem*>(menuitems);
+	Iterator<MenuItem*> *it = new VectorIterator<MenuItem*>(menuitems);
 	return it;
 }
 
@@ -67,6 +67,22 @@ void DinerMenu::addItem(){
 	}
 }
 
+CafeMenu::CafeMenu(){
+	menuitems = new map <string,MenuItem*>;
+	addItem("Vegie Burger and Fries","Veggie burger on a whole wheat bun, lettuce, tomato, and fries",true,3.99);
+	addItem("Soup of the day","A cup of soup of the day, with a side salad",false,3.69);
+	addItem("Burrito","A large burrito, with whole pinto beans, salsa and guacamole",true,4.29);
+}
+
+void CafeMenu::addItem(string name,string description,bool vegetarian,double price){
+	MenuItem *tempMenu = new MenuItem(name,description,vegetarian,price);
+	(*menuitems)[tempMenu->getName()] = tempMenu;
+}
+
+Iterator<MenuItem*>* CafeMenu::CreateIterator(){
+	Iterator<MenuItem*> *it = new MapIterator<string,MenuItem*>(menuitems);
+	return it;
+}
 
 Iterator<MenuItem*>* DinerMenu::CreateIterator(){
 	Iterator<MenuItem*> *it = new ArrayIterator<MenuItem*>(menuitems);
