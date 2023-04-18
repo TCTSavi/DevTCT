@@ -23,7 +23,7 @@ typedef Container<MenuItem*> Menu;
 //Agregado concreto(Coleção de objetos)
 class PancakeHouseMenu:public Menu{
 	private:
-	vector <MenuItem*> *menuitems;
+	map <string,MenuItem*> *menuitems;
 	public:
 	PancakeHouseMenu();
 	void addItem(string name,string description,bool vegetarian,double price);
@@ -42,6 +42,7 @@ class DinerMenu:public Menu{
 	void addItem(string name,string description,bool vegetarian,double price);
 	Iterator<MenuItem*>* CreateIterator();
 };
+
 
 //Agregado concreto(Coleção de objetos)
 class CafeMenu:public Menu{
