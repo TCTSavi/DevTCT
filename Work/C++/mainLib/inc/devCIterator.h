@@ -59,6 +59,7 @@ public:
 	}
 	item GetCurrent(){
 		if (IsDone()){
+			return nullptr;
 		}
 		return	*it;
 	}

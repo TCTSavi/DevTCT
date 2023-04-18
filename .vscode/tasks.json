@@ -9,7 +9,7 @@
                 
             ],
             "options": {
-                "cwd": "${workspaceFolder}/Work/C++/DesignPatter/Iterator"
+                "cwd": "${workspaceFolder}/Work/C++/DesignPatter/Composit"
             },
             "problemMatcher": [
                 "$gcc"
