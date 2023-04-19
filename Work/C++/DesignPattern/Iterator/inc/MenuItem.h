@@ -23,7 +23,7 @@ typedef Container<MenuItem*> Menu;
 //Agregado concreto(Coleção de objetos)
 class PancakeHouseMenu:public Menu{
 	private:
-	map <string,MenuItem*> *menuitems;
+	vector <MenuItem*> *menuitems;
 	public:
 	PancakeHouseMenu();
 	void addItem(string name,string description,bool vegetarian,double price);
