@@ -20,7 +20,7 @@ double MenuItem::getPrice(){
 }
 
 PancakeHouseMenu::PancakeHouseMenu(){
-	menuitems = new map <string,MenuItem*>;
+	menuitems = new vector <MenuItem*>;
 	addItem("K&B Pancake Breakfast","Pancakes with scrambled eggs, and toast",true,2.99);
 	addItem("Regular Pancake Breakfast","Pancakes with fried eggs, sausage",false,2.99);
 	addItem("Blueberry Pancakes","Pancakes made with fresh blueberries",true,3.49);
