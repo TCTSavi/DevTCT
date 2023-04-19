@@ -1,4 +1,9 @@
 {
 	"C_Cpp.errorSquiggles": "disabled",
-	"C_Cpp.dimInactiveRegions": false
+	"C_Cpp.dimInactiveRegions": false,
+	"workbench.colorCustomizations": {
+		"activityBar.background": "#3D2153",
+		"titleBar.activeBackground": "#552E75",
+		"titleBar.activeForeground": "#FDFCFE"
+	}
 }

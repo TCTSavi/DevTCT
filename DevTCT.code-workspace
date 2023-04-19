@@ -34,6 +34,11 @@
 			"tuple": "cpp",
 			"type_traits": "cpp",
 			"iostream": "cpp"
+		},
+		"workbench.colorCustomizations": {
+			"activityBar.background": "#3D2153",
+			"titleBar.activeBackground": "#552E75",
+			"titleBar.activeForeground": "#FDFCFE"
 		}
 	}
 }
