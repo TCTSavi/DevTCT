@@ -1,27 +1,16 @@
 #include "../inc/State.h"
-
-class GumballMachine;
-
-//Estados possiveis 
-enum {
-	SOLD_OUT = 0,
-	NO_QUARTER,
-	HAS_QUARTER,
-	SOLD,
-};
-
-int state = SOLD_OUT;
+#include "../inc/GumballMachine.h"
 
 //Não necessariamente preciso atender toda e qualquer ação a depender do estado
 //Uma ação possivel
-void insertQuarter(int 	state){
-	switch (state){
+void insertQuarter( GumballMachine *GM ){
+	switch (GM->state){
 		case SOLD_OUT:{
 			cout << "you cant insert another quarter ,the machine is sold out" << endl;
 		}	
 		break;
 		case NO_QUARTER:{
-			state = HAS_QUARTER;
+			GM->state = HAS_QUARTER;
 			cout << "You inserted a quarter" << endl;
 		}	
 		break;
@@ -39,8 +28,8 @@ void insertQuarter(int 	state){
 	}
 }
 
-void ejectQuarter(int state){
-	switch (state){
+void ejectQuarter(GumballMachine *GM){
+	switch (GM->state){
 		case SOLD_OUT:{
 			cout << "You cant eject ,you havent insert a quarter yet" << endl;
 		}	
@@ -50,7 +39,7 @@ void ejectQuarter(int state){
 		}	
 		break;
 		case HAS_QUARTER:{
-			state = NO_QUARTER;
+			GM->state = NO_QUARTER;
 			cout << "Quarter returned" << endl;
 		}	
 		break;
@@ -64,10 +53,10 @@ void ejectQuarter(int state){
 	}
 }
 
-void turnCrank(int state){
-	switch (state){
+void turnCrank(GumballMachine *GM){
+	switch (GM->state){
 		case SOLD_OUT:{
-			cout << "You cant eject ,you havent insert a quarter yet" << endl;
+			cout << "You turned, but there are no gumballs" << endl;
 		}	
 		break;
 		case NO_QUARTER:{
@@ -75,12 +64,13 @@ void turnCrank(int state){
 		}	
 		break;
 		case HAS_QUARTER:{
-			state = NO_QUARTER;
-			cout << "Quarter returned" << endl;
+			GM->state = SOLD;
+			cout << "You turned..." << endl;
+			dispense(GM);
 		}	
 		break;
 		case SOLD:{
-			cout << "Sorry ,you already turned the crank" << endl;
+			cout << "Turning twice doesnt get you another gumball" << endl;
 		}	
 		break;
 		default:
@@ -89,23 +79,31 @@ void turnCrank(int state){
 	}
 }
 
-void dispense(int state){
-	switch (state){
+void dispense(GumballMachine *GM){
+	switch (GM->state){
 		case SOLD_OUT:{
 			cout << "No gumball dispensed" << endl;
 		}	
 		break;
 		case NO_QUARTER:{
-			cout << "Plese insert a quarter" << endl;
+			cout << "You need to pay first" << endl;
 		}	
 		break;
 		case HAS_QUARTER:{
-			state = NO_QUARTER;
+			GM->state = NO_QUARTER;
 			cout << "No gumball dispensed" << endl;
 		}	
 		break;
 		case SOLD:{
 			cout << "Here is your gumball" << endl;
+			GM->count -=1;
+			if (GM->count == 0){
+				cout << "Oops, out of gumballs" << endl;	
+				GM->state = SOLD_OUT;
+			}
+			else{
+				GM->state = NO_QUARTER;
+			}
 		}	
 		break;
 		default:

@@ -6,6 +6,7 @@
 #include <string>
 
 #include "inc/State.h"
+#include "inc/GumballMachine.h"
 
 //#include "inc/CompositeIterator.h"
 //#include "inc/NullIterator.h"
