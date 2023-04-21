@@ -6,7 +6,7 @@ CFLAGS = -static-libgcc -static-libstdc++
 # -c só produz o binario e -g produz o binario com depuração(gdb)
 CMOD = -c -g 
 MFILES = 
-IFILES = State
+IFILES = State GumballMachine
 MIFILES = devCIterator
 MFILES = 
 RCFILES =

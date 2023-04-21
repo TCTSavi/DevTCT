@@ -1,13 +1,16 @@
 #ifndef _STATE_H_
 #define _STATE_H_
 
+#include <iostream>
+using namespace std;
+
 class State{
 	public:
 	virtual void insertQuarter() =0;
 	virtual void ejectQuarter() =0;
 	virtual void turnCrank() =0;
 	virtual void dispense() =0;
-}
+};
 
 class SoldState:public State{
 	public:
@@ -15,7 +18,7 @@ class SoldState:public State{
 	void ejectQuarter();
 	void turnCrank();
 	void dispense();
-}
+};
 
 class SoldOutState:public State{
 	public:
@@ -23,7 +26,7 @@ class SoldOutState:public State{
 	void ejectQuarter();
 	void turnCrank();
 	void dispense();
-}
+};
 
 class NoQuarterState:public State{
 	public:
@@ -31,7 +34,7 @@ class NoQuarterState:public State{
 	void ejectQuarter() =0;
 	void turnCrank() =0;
 	void dispense() =0;
-}
+};
 
 class HasQuarterState:public State{
 	public:
@@ -39,7 +42,7 @@ class HasQuarterState:public State{
 	void ejectQuarter() =0;
 	void turnCrank() =0;
 	void dispense() =0;
-}
+};
 
 class WinnerState:public State{
 	public:
@@ -47,6 +50,6 @@ class WinnerState:public State{
 	void ejectQuarter() =0;
 	void turnCrank() =0;
 	void dispense() =0;
-}
+};
 
 #endif
