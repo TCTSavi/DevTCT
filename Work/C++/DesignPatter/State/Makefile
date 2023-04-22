@@ -1,12 +1,12 @@
 CC= g++
 RS= windres
-MAIN= Capp
+MAIN= CappDP
 #Boa parte desses flags fazem com que o binario incluas todas dependências
 CFLAGS = -static-libgcc -static-libstdc++
 # -c só produz o binario e -g produz o binario com depuração(gdb)
 CMOD = -c -g 
 MFILES = 
-IFILES = State GumballMachine
+IFILES = StateDP GumballMachineDP
 MIFILES = devCIterator
 MFILES = 
 RCFILES =

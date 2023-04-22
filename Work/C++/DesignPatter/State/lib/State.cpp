@@ -1,6 +1,17 @@
 #include "../inc/State.h"
 #include "../inc/GumballMachine.h"
 
+
+
+
+
+
+
+
+
+
+
+
 //Não necessariamente preciso atender toda e qualquer ação a depender do estado
 //Uma ação possivel
 void insertQuarter( GumballMachine *GM ){
