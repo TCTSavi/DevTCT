@@ -3,8 +3,8 @@
 int main(){
 	
 	GumballMachine *gm = new GumballMachine(5);
-	gm->Status();
 
+	gm->Status();
 	gm->insertQuarter();
 	gm->turnCrank();
 

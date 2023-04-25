@@ -1,8 +1,6 @@
 #include "../inc/StateDP.h"
 #include "../inc/GumballMachineDP.h"
 
-State* State::state = nullptr;
-
 void HasQuarterState::insertQuarter(GumballMachine* gumMach){
 	cout << "You cant insert another quarter" << endl;
 }
@@ -19,7 +17,7 @@ void HasQuarterState::dispense(GumballMachine* gumMach){
 	gumMach->setState( NoQuarterState::instance() ); 
 }
 State* HasQuarterState::instance(){
-	state = new HasQuarterState();
+	static State* state = new HasQuarterState();
 	return state;
 }
 void HasQuarterState::print(){
@@ -48,7 +46,7 @@ void SoldState::dispense(GumballMachine* gumMach){
 	}
 }
 State* SoldState::instance(){
-	state = new SoldState();
+	static State* state = new SoldState();
 	return state;
 }
 void SoldState::print(){
@@ -70,7 +68,7 @@ void SoldOutState::dispense(GumballMachine* gumMach){
 	cout << "No gumball dispensed" << endl;
 }
 State* SoldOutState::instance(){
-	state = new SoldOutState();
+	static State* state = new SoldOutState();
 	return state;
 }
 void SoldOutState::print(){
@@ -92,7 +90,7 @@ void NoQuarterState::dispense(GumballMachine* gumMach){
 	cout << "You need to pay first" << endl;
 }
 State* NoQuarterState::instance(){
-	state = new NoQuarterState();
+	static State* state = new NoQuarterState();
 	return state;
 }
 void NoQuarterState::print(){

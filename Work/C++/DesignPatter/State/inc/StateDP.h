@@ -7,8 +7,6 @@ using namespace std;
 class GumballMachine;
 
 class State{
-	protected:
-	static State* state;
 	public:
 	virtual void insertQuarter(GumballMachine* gumMach) =0;
 	virtual void ejectQuarter(GumballMachine* gumMach) =0;
