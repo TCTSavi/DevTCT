@@ -1,3 +1,9 @@
+# Nao vou trackear o diretorio do vscode pois nao há necessidade. Nao há nenhuma configuração especial
+# que deva ser feita no vscode para ele trabalhar com este projeto em Rust.
+# Portanto todas configuracoes que houverem no diretorio do vscode são apenas configuracoes de personalizacao
+# e especifica para cada programador. 
+.vscode/
+
 # Created by https://www.toptal.com/developers/gitignore/api/rust
 # Edit at https://www.toptal.com/developers/gitignore?templates=rust
 
