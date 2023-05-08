@@ -67,7 +67,7 @@ impl MenuComponent for MenuItem {
         println!("");
     }
 
-    fn add(&mut self, menu: MenuComponentEnum) {
+    fn add(&mut self, _menu: MenuComponentEnum) {
         todo!()
     }
 }
