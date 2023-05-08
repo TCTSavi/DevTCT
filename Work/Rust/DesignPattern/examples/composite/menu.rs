@@ -1,11 +1,13 @@
-use crate::{MenuComponentEnum, Menu, MenuItem, MenuComponent};
+use crate::{Menu, MenuComponent, MenuComponentEnum, MenuItem};
 
 /// Construct the menu with all its contents
 pub fn make_all_menus() -> MenuComponentEnum {
     let mut pancake_house_menu: MenuComponentEnum =
         Menu::new("Pancake House menu".to_string(), "Breakfast".to_string()).into();
-    let mut dinner_menu: MenuComponentEnum = Menu::new("Dinner Menu".to_string(), "Lunch".to_string()).into();
-    let mut cafe_menu: MenuComponentEnum = Menu::new("Cafe Menu".to_string(), "Dinner".to_string()).into();
+    let mut dinner_menu: MenuComponentEnum =
+        Menu::new("Dinner Menu".to_string(), "Lunch".to_string()).into();
+    let mut cafe_menu: MenuComponentEnum =
+        Menu::new("Cafe Menu".to_string(), "Dinner".to_string()).into();
     let mut dessert_menu: MenuComponentEnum =
         Menu::new("Dessert Menu".to_string(), "Dessert of course!".to_string()).into();
 
@@ -162,7 +164,8 @@ pub fn make_all_menus() -> MenuComponentEnum {
 
     // *******
 
-    let mut all_menus: MenuComponentEnum = Menu::new("All Menus".to_string(), "All menus combined".to_string()).into();
+    let mut all_menus: MenuComponentEnum =
+        Menu::new("All Menus".to_string(), "All menus combined".to_string()).into();
     all_menus.add(pancake_house_menu);
     all_menus.add(dinner_menu);
     all_menus.add(cafe_menu);

@@ -1,6 +1,4 @@
-
 mod menu;
-
 
 use enum_delegate;
 use menu::make_all_menus;
@@ -67,16 +65,11 @@ impl MenuComponent for MenuItem {
         print!("{}", self.get_price());
         print!("{}", self.get_description());
         println!("");
-        
-        
-
     }
 
     fn add(&mut self, menu: MenuComponentEnum) {
         todo!()
     }
-
-    
 }
 
 // ***************************************************
@@ -121,41 +114,34 @@ impl MenuComponent for Menu {
         for each in &self.components {
             each.print()
         }
-
-
     }
 
     fn add(&mut self, menu_component: MenuComponentEnum) {
         self.components.push(menu_component)
     }
-
-    
 }
-
 
 // ***************************************************
 
 struct Alice {
-    all_menus: MenuComponentEnum
+    all_menus: MenuComponentEnum,
 }
 
 impl Alice {
-    fn new(all_menus: MenuComponentEnum) -> Self { Self { all_menus } }
+    fn new(all_menus: MenuComponentEnum) -> Self {
+        Self { all_menus }
+    }
 
     fn print_menu(&self) {
         self.all_menus.print()
     }
-    
 }
 
 // ***************************************************
 
 fn main() {
-
     let all_menus = make_all_menus();
 
     let alice = Alice::new(all_menus);
     alice.print_menu();
-
-   
 }
