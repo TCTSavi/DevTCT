@@ -7,8 +7,8 @@ use menu::make_all_menus;
 
 #[enum_delegate::register]
 trait MenuComponent {
-    fn get_name(&self) -> &str;
-    fn get_description(&self) -> &str;
+    fn get_name(&self) -> String;
+    fn get_description(&self) -> String;
     fn get_price(&self) -> f64;
     fn is_vegetarian(&self) -> bool;
     fn print(&self);
@@ -25,14 +25,14 @@ pub enum MenuComponentEnum {
 // ***************************************************
 
 pub struct MenuItem {
-    name: &'static str,
-    description: &'static str,
+    name: String,
+    description: String,
     vegetarian: bool,
     price: f64,
 }
 
 impl MenuItem {
-    fn new(name: &'static str, description: &'static str, vegetarian: bool, price: f64) -> Self {
+    fn new(name: String, description: String, vegetarian: bool, price: f64) -> Self {
         Self {
             name,
             description,
@@ -43,12 +43,12 @@ impl MenuItem {
 }
 
 impl MenuComponent for MenuItem {
-    fn get_name(&self) -> &str {
-        self.name
+    fn get_name(&self) -> String {
+        self.name.clone()
     }
 
-    fn get_description(&self) -> &str {
-        self.description
+    fn get_description(&self) -> String {
+        self.description.clone()
     }
 
     fn get_price(&self) -> f64 {
@@ -82,13 +82,13 @@ impl MenuComponent for MenuItem {
 // ***************************************************
 
 pub struct Menu {
-    name: &'static str,
-    description: &'static str,
+    name: String,
+    description: String,
     components: Vec<MenuComponentEnum>,
 }
 
 impl Menu {
-    fn new(name: &'static str, description: &'static str) -> Self {
+    fn new(name: String, description: String) -> Self {
         Self {
             name,
             description,
@@ -98,12 +98,12 @@ impl Menu {
 }
 
 impl MenuComponent for Menu {
-    fn get_name(&self) -> &str {
-        self.name
+    fn get_name(&self) -> String {
+        self.name.clone()
     }
 
-    fn get_description(&self) -> &str {
-        self.description
+    fn get_description(&self) -> String {
+        self.description.clone()
     }
 
     fn get_price(&self) -> f64 {
